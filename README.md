@@ -18,17 +18,8 @@ Upon clicking the "Save" button:
 - If there are no validation errors, the product is saved and displayed in view (details) mode.
 - In case of validation errors, they are displayed on the same page.
 
-### Binding
 
-1. **Edit Prices for Products of Chosen Category**:
-   - Links to edit the prices of products are provided on the view with the list of products.
-   - The view for editing prices displays the **Id, Name, and Price** of all products in the chosen category.
-   - Price can be edited, while Id and Name are readonly.
-   - Clicking on the "Save" button saves all the prices if there are no validation errors and displays errors if there are any.
-
-2. **Add a New User with Query String**:
    - All fields on the creation form are readonly.
    - Fields are filled in only with parameters from the query string.
    - Upon clicking the "Save" button, the user is displayed in view mode.
 
-These enhancements add validation for product attributes, the ability to edit prices for products of a chosen category, and a method to add new users via query strings.
