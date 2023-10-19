@@ -1,0 +1,51 @@
+﻿@model List<ProductsValidation.ViewModels.ProductViewModel>
+
+@{
+    ViewData["Title"] = "Edit Prices by Category";
+}
+
+<h1>Edit Prices by Category</h1>
+
+<form asp-action="SavePrices" asp-controller="Products">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    <td>@Model[i].Id</td>
+                    <td>@Model[i].Name</td>
+                    <td>
+                        <div style="display: flex; flex-direction: column;">
+                            <input type="hidden" asp-for="@Model[i].Id" value="@Model[i].Id" />
+                            <input type="hidden" asp-for="@Model[i].Name" value="@Model[i].Name" />
+
+                            <div style="margin-bottom: 10px;">
+                                <input type="text" asp-for="@Model[i].Description" class="form-control" value="@Model[i].Description" placeholder="@Model[i].Description">
+                            </div>
+                        </div>
+                        <div>
+                            <span asp-validation-for="@Model[i].Description" class="text-danger"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <input type="number" asp-for="@Model[i].Price" class="form-control" step="0.01" />
+                        </div>
+                        <div>
+                            <span asp-validation-for="@Model[i].Price" class="text-danger"></span>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <button type="submit" class="btn btn-primary">Save Prices</button>
+</form>
